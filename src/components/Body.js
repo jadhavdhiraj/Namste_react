@@ -1,17 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { restaurantList } from "../config";
 import RestaurantCard from "./RestaurantCard";
 
 
 function filterData(searchText){
     return restaurantList.filter(restaurant=>{
-        return restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
+        return restaurant?.data?.name.toLowerCase().includes(searchText.toLowerCase())
     })
 }
 
 const Body = () => {
     const [searchText,setSearchText] = useState("")
     const [restaurant,setRestaurant] =useState(restaurantList)
+
+    useEffect(() =>{
+        getRestaurant();
+    },[]);
+
+
+    async function getRestaurant(){
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9974533&lng=73.78980229999999&page_type=DESKTOP_WEB_LISTING")
+        const json = await data.json()
+        console.log(json)
+        setRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    }
     return(
         <>
         <div className="search-container">
