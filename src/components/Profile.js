@@ -19,18 +19,29 @@ class Profile extends React.Component{
         super(props);
         this.state =
             {
-                count:0
+                userInfo:{
+                    login:"",
+                    avatar_url:""
+                }
             }
         
+    }
+
+    async componentDidMount(){
+        const data = await fetch("https://api.github.com/users/jadhavdhiraj")
+        const json = await data.json()
+        this.setState({
+            userInfo:json
+        })
     }
     render(){
         const {count} = this.state
         return(
             <div>
-            <h1>This is devdhij</h1>
-            <button onClick={()=>{this.setState({
-                count:count+1
-            })}}>clicked:{count}</button>
+            <h1>This is {this?.state?.userInfo?.login}</h1>
+            <img src={this.state.userInfo.avatar_url} />
+           
+
             </div>
         )
     }

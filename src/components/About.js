@@ -14,6 +14,9 @@ import Profile from "./Profile";
 // export default About;
 
 class About extends React.Component{
+    constructor(props){
+        super(props)
+    }
     render(){
         
         return(

@@ -2,6 +2,8 @@ export const IMG_CDN_URL = "https://res.cloudinary.com/swiggy/image/upload/fl_lo
  
 export const SIMMER_CARD_COUNT = 8;
 
+export const FETCH_RESTAURANT_URL = "https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=";
+
 export const restaurantList = [
     {
       type: "restaurant",
