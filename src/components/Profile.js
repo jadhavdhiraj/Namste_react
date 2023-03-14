@@ -35,7 +35,7 @@ class Profile extends React.Component{
         })
     }
     render(){
-        const {count} = this.state
+        
         return(
             <div>
             <h1>This is {this?.state?.userInfo?.login}</h1>

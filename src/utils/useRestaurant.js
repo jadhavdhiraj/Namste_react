@@ -18,4 +18,4 @@ const useRestaurant = (resId) =>{
 
     return restaurant
 }
-export default useRestaurant; 
+export default useRestaurant;

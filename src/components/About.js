@@ -20,7 +20,7 @@ class About extends React.Component{
     render(){
         
         return(
-            <div>
+            <div className="container block">
                 <h1>This is about us page</h1>
                 <h2>My self devdhi__</h2>
                 <Profile/>

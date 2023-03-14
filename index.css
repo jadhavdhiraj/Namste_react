@@ -1,4 +1,4 @@
-.header {
+/* .header {
     display: flex;
     justify-content: space-between;
     margin:10px;
@@ -66,7 +66,7 @@
   }
   
   /*Animation to Shimmer Component Cards */
-  .stroke {
+  /* .stroke {
     height: 15px;
     background: #777;
   }
@@ -84,4 +84,8 @@
       background-position: 1000px 0;
     }
   }
-  
+   */ 
+
+   @import "tailwindcss/base";
+   @import "tailwindcss/components";
+   @import "tailwindcss/utilities";
