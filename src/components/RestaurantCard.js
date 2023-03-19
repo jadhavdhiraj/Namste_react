@@ -3,7 +3,7 @@ const RestaurantCard = ({
     name,
     cuisines,
     cloudinaryImageId,
-    lastMileTravelString,}) => {
+    lastMileTravelString}) => {
    
     return (
         <div className="w-56 p-2 m-2 shadow-lg hover:animate-none hover:scale-105  bg-pink-50">
@@ -11,7 +11,7 @@ const RestaurantCard = ({
             cloudinaryImageId}></img>
             <h2>{name}</h2>
             <h3>{cuisines.join(", ")}</h3>
-            <h4>{lastMileTravelString} minutes</h4>
+            <h4>{lastMileTravelString}</h4>
         </div>
         
     )

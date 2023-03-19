@@ -1,4 +1,4 @@
-import React,{lazy, Suspense} from "react"
+import React,{lazy, Suspense, useState} from "react"
 import ReactDOM from "react-dom/client"
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -11,6 +11,9 @@ import RestaurantCard from "./components/RestaurantCard";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
+import UserContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 
 
@@ -18,13 +21,25 @@ import Profile from "./components/Profile";
 const Instamart = lazy(()=>import("./components/Instamart"))
 
 const AppLayout = () => {
+    const [user,setUser] = useState({
+
+            name:"Dhiraj j",
+            email:"dhiraj@gmaol.com"
+        
+    })
 
     return(
-        <>
+        <Provider store={store}>
+        <UserContext.Provider value={{
+            user:user,
+            setUser:setUser
+        
+        } }>
         <Header />
         <Outlet />
         <Footer/>
-        </>
+        </UserContext.Provider>
+        </Provider>
     )
 }
 const appRouter = createBrowserRouter([

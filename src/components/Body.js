@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { restaurantList } from "../config";
 import RestaurantCard from "./RestaurantCard";
@@ -6,6 +6,8 @@ import Shimmer from "./Shimmer";
 import {Link} from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/userContext";
+
 
 
 
@@ -14,6 +16,7 @@ const Body = () => {
     const [searchText,setSearchText] = useState("")
     const [filterdRestaurant,setFilterdRestaurant] =useState([])
     const [allRestaurant,setAllRestaurant] =useState([])
+    const {user,setUser} = useContext(UserContext);
 
     useEffect(() =>{
         getRestaurant();
@@ -21,7 +24,7 @@ const Body = () => {
    console.log(useState())
 
     async function getRestaurant(){
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING")
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING")
         const json = await data.json()
         
         setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
@@ -51,6 +54,18 @@ const Body = () => {
                 const data = filterData(searchText,allRestaurant)
                 setFilterdRestaurant(data)
             }}>Search</button>
+
+            <input value={user.name} onChange={e => setUser({
+                ...user,
+                name:e.target.value
+            })}
+            ></input>
+             <input value={user.email} onChange={e => setUser({
+                ...user,
+                email:e.target.value
+            })}
+            ></input>
+           
 
         </div>
         {/* <Shimmer /> */}
