@@ -21,14 +21,14 @@ const Header = () => {
 
     const cartItems = useSelector(store=>store.cart.items)
     return (
-        <div className="flex justify-between bg-orange-100 shadow sticky top-0 left-0 w-full h-[70px] z-1">
+        <div className="flex justify-between bg-orange-100 shadow sticky top-0 left-0 w-full h-[70px] z-50">
             <Title/>
             
                 <ul className="flex max-w-2xl items-center justify-between mt-2 mr-2.5">
                     <li className="p-3 hover:bg-orange-300 rounded-2xl"><Link to="/">Home</Link></li>
                     <li className="p-3 hover:bg-orange-300 rounded-2xl"><Link to="/about">About</Link></li>
                     <li className="p-3 hover:bg-orange-300 rounded-2xl"><Link to="/contact">Contact</Link></li>
-                    <li className="p-3 hover:bg-orange-300 rounded-2xl">Cart-{cartItems}</li>
+                    <li className="p-3 hover:bg-orange-300 rounded-2xl"><Link to="/cart">Cart-{cartItems.length}</Link></li>
                     <li className="p-3 hover:bg-orange-300 rounded-2xl"><Link to="/instamart">Instamart</Link></li>
                     <li className="p-3 hover:bg-orange-300 rounded-2xl">{user.name}</li>
                     

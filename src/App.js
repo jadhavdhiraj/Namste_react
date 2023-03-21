@@ -14,6 +14,7 @@ import Profile from "./components/Profile";
 import UserContext from "./utils/userContext";
 import { Provider } from "react-redux";
 import store from "./utils/store";
+import Cart from "./components/Cart";
 
 
 
@@ -24,7 +25,7 @@ const AppLayout = () => {
     const [user,setUser] = useState({
 
             name:"Dhiraj j",
-            email:"dhiraj@gmaol.com"
+            email:"dhiraj@gmail.com"
         
     })
 
@@ -77,6 +78,10 @@ const appRouter = createBrowserRouter([
             {
                 path:"/instamart",
                 element:<Suspense fallback="Happy shoping"><Instamart /></Suspense>
+            },
+            {
+                path:"/cart",
+                element:<Cart/>
             }
   
         ]

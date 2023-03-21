@@ -50,12 +50,12 @@ const Body = () => {
                 setSearchText(e.target.value);
             }}
             ></input>
-            <button className="hover:bg-orange-400 rounded-xl p-2 ml-10" onClick={()=>{
+            <button className="hover:bg-orange-400 rounded-xl p-2 ml-10 bg-orange-200" onClick={()=>{
                 const data = filterData(searchText,allRestaurant)
                 setFilterdRestaurant(data)
             }}>Search</button>
 
-            <input value={user.name} onChange={e => setUser({
+            <input className="ml-10" value={user.name} onChange={e => setUser({
                 ...user,
                 name:e.target.value
             })}
