@@ -24,6 +24,7 @@ class About extends React.Component{
                 <h1>This is about us page</h1>
                 <h2>My self devdhi__</h2>
                 <Profile/>
+                {/* <Outlet/> */}
             </div>
         )
     }

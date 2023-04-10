@@ -26,7 +26,7 @@ const Header = () => {
             
                 <ul className="flex max-w-2xl items-center justify-between mt-2 mr-2.5">
                     <li className="p-3 hover:bg-orange-300 rounded-2xl"><Link to="/">Home</Link></li>
-                    <li className="p-3 hover:bg-orange-300 rounded-2xl"><Link to="/about">About</Link></li>
+                    <li className="p-3 hover:bg-orange-300 rounded-2xl"><Link to="/about/profile">About</Link></li>
                     <li className="p-3 hover:bg-orange-300 rounded-2xl"><Link to="/contact">Contact</Link></li>
                     <li className="p-3 hover:bg-orange-300 rounded-2xl"><Link to="/cart">Cart-{cartItems.length}</Link></li>
                     <li className="p-3 hover:bg-orange-300 rounded-2xl"><Link to="/instamart">Instamart</Link></li>

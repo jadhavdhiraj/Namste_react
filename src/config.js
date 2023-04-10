@@ -4,6 +4,10 @@ export const SHIMMER_CARD_COUNT = 8;
 
 export const FETCH_RESTAURANT_URL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=";
 
+export const CORS_API_HOST = "https://cors-anywhere.herokuapp.com/";
+
+export const SWIGGY_API_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING"
+
 export const restaurantList = [
     {
       type: "restaurant",

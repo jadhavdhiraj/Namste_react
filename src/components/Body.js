@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import { restaurantList } from "../config";
+import { CORS_API_HOST, restaurantList, SWIGGY_API_URL } from "../config";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import {Link} from "react-router-dom";
@@ -24,7 +24,8 @@ const Body = () => {
    console.log(useState())
 
     async function getRestaurant(){
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING")
+        const URL = `${CORS_API_HOST+SWIGGY_API_URL}`;
+        const data = await fetch(URL)
         const json = await data.json()
         
         setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
