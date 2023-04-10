@@ -11,7 +11,7 @@ import RestaurantCard from "./components/RestaurantCard";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
-import UserContext from "./utils/UserContext";
+import UserContext from "./utils/userContext";
 import { Provider } from "react-redux";
 import store from "./utils/store";
 import Cart from "./components/Cart";
