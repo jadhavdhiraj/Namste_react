@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import { FETCH_RESTAURANT_URL } from "../config";
+import { FETCH_RESTAURANT_URL, CORS_API_HOST} from "../config";
 
 const useRestaurant = (resId) =>{
 
@@ -8,7 +8,8 @@ const useRestaurant = (resId) =>{
         getRestaurantInfo();
     },[])
     async function getRestaurantInfo(){
-        const data = await fetch(FETCH_RESTAURANT_URL+resId); 
+        const URL = `${CORS_API_HOST+FETCH_RESTAURANT_URL}`;
+        const data = await fetch(URL+resId); 
         const json = await data.json()
         console.log(json.data);
         console.log(json);
