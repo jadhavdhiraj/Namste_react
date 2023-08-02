@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
+import resList from "../utils/mockData";
 
 
 
@@ -21,22 +22,28 @@ const Body = () => {
     useEffect(() =>{
         getRestaurant();
     },[]);
-   console.log(useState())
+   
 
     async function getRestaurant(){
-        const URL = `${CORS_API_HOST+SWIGGY_API_URL}`;
-        const data = await fetch(URL)
+       // const URL = `${CORS_API_HOST+SWIGGY_API_URL}`;
+        const data = await fetch(SWIGGY_API_URL)
         const json = await data.json()
         
-        setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
-        setFilterdRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+console.log(json)
+
+       setAllRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilterdRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        console.log("this is" +json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
+
+      
     }
 
     const isOnline = useOnline()
 
     if(!isOnline) return(<h1>check your internet connection please</h1>)
 
-    if(!allRestaurant) return null;
+    if(!allRestaurant) return <Shimmer/> ;
 
     return (
         <div className="">
@@ -74,7 +81,7 @@ const Body = () => {
         {(allRestaurant?.length==0) ? <Shimmer/> : <div className="flex flex-wrap gap-5 justify-evenly mx-20">
             
             {   (filterdRestaurant.length == 0) ? <h1>Not Found</h1> : filterdRestaurant.map((restaurant) => {
-                return <Link to={"/restaurant/"+restaurant.data.id} key={restaurant.data.id}><RestaurantCard {...restaurant.data}  /></Link>
+                return <Link to={"/restaurant/"+restaurant.info.id} key={restaurant.info.id}><RestaurantCard {...restaurant.info}  /></Link>
             })
         }
             </div>}   

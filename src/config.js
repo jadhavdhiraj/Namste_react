@@ -6,7 +6,7 @@ export const FETCH_RESTAURANT_URL = "https://www.swiggy.com/dapi/menu/pl?page-ty
 
 export const CORS_API_HOST = "https://cors-anywhere.herokuapp.com/";
 
-export const SWIGGY_API_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING"
+export const SWIGGY_API_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
 export const restaurantList = [
     {
