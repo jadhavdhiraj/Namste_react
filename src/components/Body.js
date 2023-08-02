@@ -25,8 +25,8 @@ const Body = () => {
    
 
     async function getRestaurant(){
-       // const URL = `${CORS_API_HOST+SWIGGY_API_URL}`;
-        const data = await fetch(SWIGGY_API_URL)
+        const URL = `${CORS_API_HOST+SWIGGY_API_URL}`;
+        const data = await fetch(URL)
         const json = await data.json()
         
 console.log(json)
